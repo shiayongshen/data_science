@@ -28,16 +28,16 @@
 | 欄位名稱             | 說明                                      |
 | -------------------- | ----------------------------------------- |
 | `Transaction ID`     | 每筆交易的唯一識別碼                      |
-| `Date`               | 交易日期，格式可能不一致                  |
 | `Customer ID`        | 客戶的唯一識別碼                          |
-| `Gender`             | 客戶性別，可能包含拼寫錯誤或大小寫不一致    |
-| `Age`                | 客戶年齡，可能有缺失值或不合理數值        |
 | `Item`               | 商品代碼（例：`Item_1_EHE`）              |
-| `Item Name`          | 商品名稱，可能缺失或有多種命名方式        |
 | `Category`           | 商品類別，可能缺失或與 `Item` 不一致      |
 | `Price Per Unit`     | 單位商品價格，可能缺失或格式錯誤          |
 | `Quantity`           | 購買數量，可能缺失或為非數值              |
 | `Total Spent`        | 總花費，可能與價格 × 數量不符            |
+| `Transaction Date`               | 交易日期，格式可能不一致                  |
+| `Discount Applied`   | 是否有折扣，空值以 `Unknown` 補齊                   |
+| `Payment Method`     | 支付方式（如 `Credit Card`、`Digital Wallet`）     |
+| `Location`           | 交易通路（`Online` / `Offline`）                   |
 
 ---
 
@@ -157,11 +157,11 @@
   | `Is_NonWorkday`        | 是否非工作日 (週末或假日)                      |
   | `Prev_Date_Cust`       | 該客戶前一次交易日期                           |
   | `Recency_Cust`         | 與前一次交易的天數差                           |
-  | `PM_Credit Card`       | 支付方式 = Credit Card (dummy)               |
-  | `PM_Digital Wallet`    | 支付方式 = Digital Wallet (dummy)            |
-  | `Loc_Online`           | 通路 = Online (dummy)                        |
-  | `Disc_True`            | 折扣 = True (dummy)                          |
-  | `Disc_Unknown`         | 折扣 = Unknown (dummy)                       |
+  | `PM_Credit Card`       | 支付方式 = Credit Card (one-hot)               |
+  | `PM_Digital Wallet`    | 支付方式 = Digital Wallet (one-hot)            |
+  | `Loc_Online`           | 通路 = Online (one-hot)                        |
+  | `Disc_True`            | 折扣 = True (one-hot)                          |
+  | `Disc_Unknown`         | 折扣 = Unknown (one-hot)                       |
 
 
 
